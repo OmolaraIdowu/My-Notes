@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">My Notes</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="edited_on">Edited On</string>
+    <string name="save_button">Save Button</string>
+    <string name="back_button">Back Button</string>
+    <string name="title">Title</string>
+    <string name="note">Note…</string>
+    <string name="theme_button">Theme Button</string>
+    <string name="about_app">My Notes 1.0.0</string>
+    <string name="capture_your_thoughts_anytime_anywhere">Capture your thoughts, anytime, anywhere.</string>
+    <string name="say_goodbye_to_scattered_notes_and_hello_to_an_organized_life_with_our_note_app">Say goodbye to scattered notes and hello to an organized life with our note app.</string>
+    <string name="about_button">About Button</string>
+    <string name="search_hint">Search here…</string>
+    <string name="add_note">Add Note</string>
+    <string name="select_a_color">Select a color</string>
+    <string name="cancel">Cancel</string>
+    <string name="cancel_button">Cancel Button</string>
+</resources>

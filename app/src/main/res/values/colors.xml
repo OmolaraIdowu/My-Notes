@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#1B1B1B</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="grey">#F8F8F8</color>
+    <color name="grey_200">#CDCDCD</color>
+    <color name="pink">#4AFF9CBD</color>
+    <color name="red_500">#FE0000</color>
+    <color name="pink_500">#FF0057</color>
+    <color name="purple">#AC19AD</color>
+    <color name="purple_500">#6D38B5</color>
+    <color name="indigo">#005EB3</color>
+    <color name="blue">#4278FB</color>
+    <color name="light_blue">#00ACF5</color>
+    <color name="cyan">#00BFD6</color>
+    <color name="teal">#009F94</color>
+    <color name="green">#00A44A</color>
+    <color name="light_green">#78C552</color>
+    <color name="lime">#CADC42</color>
+    <color name="yellow">#FFE746</color>
+    <color name="amber">#FFBB00</color>
+    <color name="orange">#FF8500</color>
+    <color name="orange_500">#FF4700</color>
+    <color name="brown">#A34A3C</color>
+    <color name="grey_500">#9E9E9E</color>
+    <color name="grey_700">#567E8C</color>
+
+
+
+    <array name="colors">
+        <item>@color/red_500</item>
+        <item>@color/pink_500</item>
+        <item>@color/purple</item>
+        <item>@color/purple_500</item>
+        <item>@color/indigo</item>
+        <item>@color/blue</item>
+        <item>@color/light_blue</item>
+        <item>@color/cyan</item>
+        <item>@color/teal</item>
+        <item>@color/green</item>
+        <item>@color/light_green</item>
+        <item>@color/lime</item>
+        <item>@color/yellow</item>
+        <item>@color/amber</item>
+        <item>@color/orange</item>
+        <item>@color/orange_500</item>
+        <item>@color/brown</item>
+        <item>@color/grey_500</item>
+        <item>@color/grey_700</item>
+        <item>@color/white</item>
+    </array>
+</resources>
