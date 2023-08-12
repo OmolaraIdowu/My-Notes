@@ -83,7 +83,6 @@
         android:autofillHints="none"
         android:background="@android:color/transparent"
         android:ellipsize="end"
-        android:ems="20"
         android:fontFamily="@font/poppins_semibold"
         android:hint="@string/title"
         android:inputType="textCapWords|textMultiLine"
@@ -92,6 +91,7 @@
         android:textColor="@color/black"
         android:textIsSelectable="true"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/noteDetail"
         app:layout_constraintEnd_toStartOf="@id/endGuideline"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
@@ -102,7 +102,6 @@
         android:layout_height="0dp"
         android:autofillHints="none"
         android:background="@android:color/transparent"
-        android:ems="20"
         android:fontFamily="@font/poppins_medium"
         android:gravity="top"
         android:hint="@string/note"

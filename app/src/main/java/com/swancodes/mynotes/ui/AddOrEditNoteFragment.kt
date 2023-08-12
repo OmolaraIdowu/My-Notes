@@ -6,7 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.swancodes.mynotes.R
 import com.swancodes.mynotes.databinding.FragmentAddNoteBinding
+import com.swancodes.mynotes.databinding.PaletteBottomSheetBinding
 
 class AddOrEditNoteFragment : Fragment() {
 
@@ -30,5 +33,21 @@ class AddOrEditNoteFragment : Fragment() {
         binding.saveButton.setOnClickListener {
             findNavController().navigate(AddOrEditNoteFragmentDirections.toNoteListFragment())
         }
+
+        binding.themeButton.setOnClickListener {
+            showColorPalette()
+        }
+    }
+
+    private fun showColorPalette() {
+        val bottomSheetDialog = BottomSheetDialog(requireContext(), R.style.BottomSheetDailogTheme)
+        val binding = PaletteBottomSheetBinding.inflate(LayoutInflater.from(requireContext()))
+        val bottomSheetView = binding.root
+
+        binding.cancelButton.setOnClickListener {
+            bottomSheetDialog.dismiss()
+        }
+        bottomSheetDialog.setContentView(bottomSheetView)
+        bottomSheetDialog.show()
     }
 }
