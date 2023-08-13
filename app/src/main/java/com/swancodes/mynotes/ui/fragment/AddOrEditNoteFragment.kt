@@ -1,4 +1,4 @@
-package com.swancodes.mynotes.ui
+package com.swancodes.mynotes.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
