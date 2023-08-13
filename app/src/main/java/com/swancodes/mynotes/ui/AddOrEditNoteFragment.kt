@@ -33,7 +33,6 @@ class AddOrEditNoteFragment : Fragment() {
         binding.saveButton.setOnClickListener {
             findNavController().navigate(AddOrEditNoteFragmentDirections.toNoteListFragment())
         }
-
         binding.themeButton.setOnClickListener {
             showColorPalette()
         }

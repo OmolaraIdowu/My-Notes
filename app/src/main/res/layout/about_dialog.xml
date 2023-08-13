@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
     android:background="@color/white">
 
     <com.google.android.material.textview.MaterialTextView
@@ -22,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/aboutText1"
+        android:id="@+id/aboutText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
@@ -35,20 +34,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/appName" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/aboutText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="@string/capture_your_thoughts_anytime_anywhere"
-        android:textAlignment="viewStart"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@id/aboutText1"
-        app:layout_constraintStart_toStartOf="@id/aboutText1"
-        app:layout_constraintTop_toBottomOf="@id/aboutText1" />
 
     <ImageButton
         android:id="@+id/gitHubImage"
@@ -68,7 +53,7 @@
         android:id="@+id/twitterImage"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:layout_marginBottom="24dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/button_bg"
@@ -80,6 +65,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/aboutText2"
+        app:layout_constraintTop_toBottomOf="@id/aboutText"
         tools:ignore="ImageContrastCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -71,7 +71,7 @@
         android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:backgroundTint="@color/black"
+        app:backgroundTint="?colorPrimaryVariant"
         app:icon="@drawable/add_icon"
         app:iconSize="12dp"
         app:iconTint="@color/white"

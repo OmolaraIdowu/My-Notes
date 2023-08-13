@@ -29,7 +29,6 @@ class NoteListFragment : Fragment() {
         binding.addNoteButton.setOnClickListener {
             findNavController().navigate(NoteListFragmentDirections.toAddOrEditNoteFragment())
         }
-
         binding.aboutButton.setOnClickListener {
             showAboutDialog()
         }
