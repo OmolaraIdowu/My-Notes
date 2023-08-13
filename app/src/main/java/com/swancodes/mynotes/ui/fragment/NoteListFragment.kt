@@ -1,4 +1,4 @@
-package com.swancodes.mynotes.ui
+package com.swancodes.mynotes.ui.fragment
 
 import android.app.AlertDialog
 import android.os.Bundle
