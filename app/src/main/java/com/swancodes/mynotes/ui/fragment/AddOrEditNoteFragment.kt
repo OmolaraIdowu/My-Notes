@@ -1,5 +1,7 @@
 package com.swancodes.mynotes.ui.fragment
 
+import android.app.AlertDialog
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -39,14 +41,36 @@ class AddOrEditNoteFragment : Fragment() {
     }
 
     private fun showColorPalette() {
-        val bottomSheetDialog = BottomSheetDialog(requireContext(), R.style.BottomSheetDailogTheme)
-        val binding = PaletteBottomSheetBinding.inflate(LayoutInflater.from(requireContext()))
-        val bottomSheetView = binding.root
+        val currentOrientation = resources.configuration.orientation
 
-        binding.cancelButton.setOnClickListener {
-            bottomSheetDialog.dismiss()
+        if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) {
+            // Show bottom sheet dialog
+            val bottomSheetDialog =
+                BottomSheetDialog(requireContext(), R.style.BottomSheetDialogTheme)
+            val binding = PaletteBottomSheetBinding.inflate(LayoutInflater.from(requireContext()))
+            val bottomSheetView = binding.root
+
+            bottomSheetView.setBackgroundResource(R.drawable.bottom_sheet_bg)
+
+            binding.cancelButton.setOnClickListener {
+                bottomSheetDialog.dismiss()
+            }
+            bottomSheetDialog.setContentView(bottomSheetView)
+            bottomSheetDialog.show()
+        } else {
+            // Show dialog with color palette
+            val dialogBuilder = AlertDialog.Builder(requireContext())
+            val binding = PaletteBottomSheetBinding.inflate(LayoutInflater.from(requireContext()))
+            val dialogView = binding.root
+
+            dialogBuilder.setView(dialogView)
+            val dialog = dialogBuilder.create()
+
+            binding.cancelButton.setOnClickListener {
+                dialog.dismiss()
+            }
+            dialog.show()
         }
-        bottomSheetDialog.setContentView(bottomSheetView)
-        bottomSheetDialog.show()
     }
+
 }
