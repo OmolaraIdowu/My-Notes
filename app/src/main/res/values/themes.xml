@@ -20,11 +20,11 @@
         <item name="iconTint">@color/black</item>
     </style>
 
-    <style name="BottomSheetDailogTheme" parent="Theme.Material3.Light.BottomSheetDialog">
+    <style name="BottomSheetDialogTheme" parent="Theme.Material3.Light.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
     </style>
 
-    <style name="BottomSheetStyle" parent="Widget.Material3.BottomSheet.Modal">
+    <style name="BottomSheetStyle" parent="Widget.Material3.BottomSheet">
         <item name="android:background">@android:color/transparent</item>
     </style>
 </resources>
