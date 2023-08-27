@@ -6,12 +6,10 @@ import androidx.lifecycle.ViewModel
 import com.swancodes.mynotes.data.Note
 import com.swancodes.mynotes.repository.NoteRepository
 
-class NoteViewModel : ViewModel() {
+class NoteViewModel(private val noteRepository: NoteRepository) : ViewModel() {
 
     private val _notes = MutableLiveData<List<Note>>()
     val notes: LiveData<List<Note>> get() = _notes
-
-    private val noteRepository = NoteRepository()
 
     init {
         getAllNotes()

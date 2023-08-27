@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.snackbar.Snackbar
@@ -22,14 +21,15 @@ import com.swancodes.mynotes.databinding.PriorityBottomSheetBinding
 import com.swancodes.mynotes.util.hide
 import com.swancodes.mynotes.util.show
 import com.swancodes.mynotes.viewmodel.NoteViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
+
 
 class AddOrEditNoteFragment : Fragment() {
 
     private lateinit var binding: FragmentAddNoteBinding
     private var selectedPriority: Priority = Priority.MEDIUM
     private var isAllFabVisible = false
-    private val viewModel: NoteViewModel by viewModels()
-
+    private val viewModel: NoteViewModel by viewModel()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
