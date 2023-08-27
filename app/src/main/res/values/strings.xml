@@ -6,7 +6,6 @@
     <string name="save_button">Save Button</string>
     <string name="back_button">Back Button</string>
     <string name="title">Title</string>
-    <string name="note">Note…</string>
     <string name="theme_button">Theme Button</string>
     <string name="about_app">My Notes 1.0.0</string>
     <string name="capture_your_thoughts_anytime_anywhere">Capture your thoughts, anytime, anywhere.</string>
@@ -19,4 +18,12 @@
     <string name="cancel_button">Cancel Button</string>
     <string name="create_your_first_note">Create your first note!</string>
     <string name="share_button">Share Button</string>
+    <string name="priority_image">Priority Image</string>
+    <string name="start_typing">Start typing…</string>
+    <string name="palette">Palette</string>
+    <string name="priority">Priority</string>
+    <string name="theme">Theme</string>
+    <string name="low">Low</string>
+    <string name="medium">Medium</string>
+    <string name="high">High</string>
 </resources>
