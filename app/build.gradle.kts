@@ -56,14 +56,22 @@ dependencies {
     implementation("com.thebluealliance:spectrum:0.7.1")
 
     // ViewModel
-    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
 
     // Room
     ksp("androidx.room:room-compiler:2.5.2")
     implementation("androidx.room:room-ktx:2.5.2")
     implementation("androidx.room:room-runtime:2.5.2")
     androidTestImplementation("androidx.room:room-testing:2.5.2")
+
+    // Koin
+    implementation("io.insert-koin:koin-android:3.4.0")
+
+    // Koin Tests
+    testImplementation("io.insert-koin:koin-test:3.4.0")
+    testImplementation("io.insert-koin:koin-test-junit4:3.4.0")
+    testImplementation("org.mockito:mockito-inline:4.8.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

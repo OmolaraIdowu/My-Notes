@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,11 +18,13 @@ import com.swancodes.mynotes.data.Note
 import com.swancodes.mynotes.databinding.AboutDialogBinding
 import com.swancodes.mynotes.databinding.FragmentNoteListBinding
 import com.swancodes.mynotes.viewmodel.NoteViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
+
 
 class NoteListFragment : Fragment() {
 
     private lateinit var binding: FragmentNoteListBinding
-    private val viewModel: NoteViewModel by viewModels()
+    private val viewModel: NoteViewModel by viewModel()
 
     private val noteListAdapter: NoteListAdapter by lazy {
         NoteListAdapter(object : ItemClickListener {
