@@ -14,24 +14,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <ImageView
+            android:id="@+id/priorityIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/priority_image"
+            android:src="@drawable/ic_red_flag"
+            app:layout_constraintBottom_toTopOf="@id/noteTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/noteTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:ellipsize="end"
             android:fontFamily="@font/poppins_semibold"
             android:maxLines="1"
             android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
             android:textColor="@color/black"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@id/noteDetail"
+            app:layout_constraintBottom_toTopOf="@id/noteContent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/priorityIndicator"
             tools:text="Title" />
 
         <TextView
-            android:id="@+id/noteDetail"
+            android:id="@+id/noteContent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -43,7 +54,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/noteTitle"
             app:layout_constraintTop_toBottomOf="@id/noteTitle"
-            tools:text="Detail" />
+            tools:text="Content" />
 
         <TextView
             android:id="@+id/dateText"
@@ -60,7 +71,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/noteDetail"
+            app:layout_constraintTop_toBottomOf="@id/noteContent"
             tools:text="DD-MM-YYYY" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

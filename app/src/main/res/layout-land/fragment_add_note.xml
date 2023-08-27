@@ -76,7 +76,7 @@
     </androidx.appcompat.widget.Toolbar>
 
     <EditText
-        android:id="@+id/titleTextField"
+        android:id="@+id/noteTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -91,20 +91,20 @@
         android:textColor="@color/black"
         android:textIsSelectable="true"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/noteDetail"
-        app:layout_constraintEnd_toStartOf="@id/endGuideline"
+        app:layout_constraintBottom_toTopOf="@id/noteContent"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
     <EditText
-        android:id="@+id/noteDetail"
+        android:id="@+id/noteContent"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:autofillHints="none"
         android:background="@android:color/transparent"
         android:fontFamily="@font/poppins_medium"
         android:gravity="top"
-        android:hint="@string/note"
+        android:hint="@string/start_typing"
         android:inputType="textCapSentences|textMultiLine"
         android:padding="10dp"
         android:textColor="@color/black"
@@ -113,19 +113,67 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/endGuideline"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
-        app:layout_constraintTop_toBottomOf="@id/titleTextField" />
+        app:layout_constraintTop_toBottomOf="@id/noteTitle" />
 
-    <ImageButton
-        android:id="@+id/themeButton"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/moreFab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/button_bg"
-        android:contentDescription="@string/theme_button"
-        android:padding="12dp"
-        android:src="@drawable/ic_palette"
+        android:backgroundTint="?colorPrimaryVariant"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_more"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/endGuideline" />
+        app:layout_constraintEnd_toStartOf="@id/endGuideline"
+        app:tint="@color/white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/themeFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_palette"
+        app:backgroundTint="?colorPrimaryVariant"
+        app:layout_constraintBottom_toTopOf="@id/moreFab"
+        app:layout_constraintEnd_toStartOf="@id/endGuideline"
+        app:tint="@color/white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/priorityFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_green_flag"
+        app:backgroundTint="?colorPrimaryVariant"
+        app:layout_constraintBottom_toTopOf="@id/themeFab"
+        app:layout_constraintEnd_toStartOf="@id/endGuideline"
+        app:tint="@color/white" />
+
+    <TextView
+        android:id="@+id/themeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/theme"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/themeFab"
+        app:layout_constraintEnd_toStartOf="@id/themeFab"
+        app:layout_constraintTop_toTopOf="@id/themeFab" />
+
+    <TextView
+        android:id="@+id/priorityText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/priority"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/priorityFab"
+        app:layout_constraintEnd_toStartOf="@id/priorityFab"
+        app:layout_constraintTop_toTopOf="@id/priorityFab" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/startGuideline"
