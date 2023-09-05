@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.Log
 import androidx.work.Worker
 import androidx.work.WorkerParameters
-import androidx.work.workDataOf
 import com.swancodes.mynotes.data.Note
 import com.swancodes.mynotes.data.Priority
 import com.swancodes.mynotes.repository.NoteRepository
@@ -22,6 +21,7 @@ class NoteSaveWorker(
         val appContext = applicationContext
         val noteRepository: NoteRepository = NoteRepositoryImpl()
         try {
+
             saveNote(noteRepository)
 
             // Calculate size and show a success notification
@@ -29,9 +29,7 @@ class NoteSaveWorker(
             val successMessage = "Note saved successfully. Total Notes: $noteSize"
             showNotification(successMessage, appContext)
 
-            // Create output data to pass information back to the caller
-            val outputData = workDataOf("totalNotesSize" to noteSize)
-            return Result.success(outputData)
+            return Result.success()
 
         } catch (t: Throwable) {
             // Show an error notification with the exception message
@@ -44,14 +42,10 @@ class NoteSaveWorker(
     }
 
     private fun saveNote(noteRepository: NoteRepository) {
-        // Save a note
         val newNote =
             Note("New Note", "This is a new note.", System.currentTimeMillis(), Priority.LOW)
         noteRepository.addNote(newNote)
         Log.d(TAG, "Note added: $newNote")
-
-        // Save a list of notes
-        //noteRepository.getAllNotes()
     }
 
     companion object {

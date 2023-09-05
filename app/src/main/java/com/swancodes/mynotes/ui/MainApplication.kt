@@ -1,9 +1,7 @@
 package com.swancodes.mynotes.ui
 
 import android.app.Application
-import androidx.work.BackoffPolicy
 import androidx.work.Constraints
-import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.swancodes.mynotes.di.appModule
@@ -36,13 +34,8 @@ class MainApplication : Application() {
             10, TimeUnit.SECONDS
         )
             .setConstraints(constraints)
-            .setBackoffCriteria(BackoffPolicy.EXPONENTIAL, 10, TimeUnit.SECONDS)
             .build()
 
-        WorkManager.getInstance(this).enqueueUniquePeriodicWork(
-            "NoteSaveWork",
-            ExistingPeriodicWorkPolicy.UPDATE,
-            noteSaveWorkRequest
-        )
+        WorkManager.getInstance(this).enqueue(noteSaveWorkRequest)
     }
 }
