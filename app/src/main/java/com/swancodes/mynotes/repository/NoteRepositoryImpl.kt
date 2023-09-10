@@ -19,7 +19,6 @@ class NoteRepositoryImpl : NoteRepository {
         return notes.toList()
     }
 
-
     override fun addNote(note: Note) {
         notes.add(note)
         Log.d("NoteRepositoryImpl", "Note added: $note")
