@@ -18,7 +18,7 @@ fun showNotification(message: String, context: Context) {
 
     // Create the notification
     val notification = NotificationCompat.Builder(context, CHANNEL_ID)
-        .setContentTitle("Note Save Notification")
+        .setContentTitle("Note Notification")
         .setContentText(message)
         .setSmallIcon(R.drawable.ic_notification)
         .setPriority(NotificationCompat.PRIORITY_HIGH)

@@ -25,11 +25,12 @@ class NoteListFragment : Fragment() {
 
     private lateinit var binding: FragmentNoteListBinding
     private val viewModel: NoteViewModel by viewModel()
+    private lateinit var noteRecyclerView: RecyclerView
 
     private val noteListAdapter: NoteListAdapter by lazy {
         NoteListAdapter(object : ItemClickListener {
             override fun onItemClick(note: Note) {
-                findNavController().navigate(NoteListFragmentDirections.toAddOrEditNoteFragment())
+                findNavController().navigate(NoteListFragmentDirections.toAddOrEditNoteFragment(note))
             }
         })
     }
@@ -46,11 +47,13 @@ class NoteListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        noteRecyclerView = binding.noteRecyclerView
         setUpRecyclerView()
 
         setUpObserver()
 
         setClickListeners()
+
 
         val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(
             ItemTouchHelper.UP or ItemTouchHelper.DOWN,
@@ -84,14 +87,14 @@ class NoteListFragment : Fragment() {
     }
 
     private fun setUpRecyclerView() {
-        binding.noteRecyclerView.apply {
+        noteRecyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = noteListAdapter
         }
     }
 
     private fun setUpObserver() {
-        viewModel.notes.observe(viewLifecycleOwner) { notes ->
+        viewModel.allNotes.observe(viewLifecycleOwner) { notes ->
             noteListAdapter.submitList(notes)
             binding.emptyView.isVisible = notes.isEmpty()
         }
@@ -119,4 +122,5 @@ class NoteListFragment : Fragment() {
 
         dialog.show()
     }
+
 }
