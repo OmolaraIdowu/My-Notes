@@ -1,31 +1,26 @@
 package com.swancodes.mynotes.repository
 
-import android.util.Log
+import androidx.lifecycle.LiveData
 import com.swancodes.mynotes.data.Note
-import com.swancodes.mynotes.data.Priority
+import com.swancodes.mynotes.data.NoteDao
 
-class NoteRepositoryImpl : NoteRepository {
+class NoteRepositoryImpl(private val noteDao: NoteDao) : NoteRepository {
 
-    private val notes: MutableList<Note> = mutableListOf(
-        Note("Note 1", "This is a new note", System.currentTimeMillis(), Priority.LOW),
-        Note("Note 2", "This is a new note", System.currentTimeMillis(), Priority.MEDIUM),
-        Note("Note 3", "This is a new note", System.currentTimeMillis(), Priority.HIGH),
-        Note("Note 4", "This is a new note", System.currentTimeMillis(), Priority.MEDIUM),
-        Note("Note 5", "This is a new note", System.currentTimeMillis(), Priority.LOW),
-        Note("Note 6", "This is a new note", System.currentTimeMillis(), Priority.HIGH)
-    )
+    override val getAllNotes: LiveData<List<Note>> = noteDao.getAllNotes()
 
-    override fun getAllNotes(): List<Note> {
-        return notes.toList()
+    override suspend fun addNote(note: Note) {
+        noteDao.insertNote(note)
     }
 
-    override fun addNote(note: Note) {
-        notes.add(note)
-        Log.d("NoteRepositoryImpl", "Note added: $note")
+    override suspend fun updateNote(note: Note) {
+        noteDao.updateNote(note)
     }
 
-    override fun deleteNote(note: Note) {
-        notes.remove(note)
-        Log.d("NoteRepositoryImpl", "Note deleted: $note")
+    override suspend fun deleteNote(note: Note) {
+        noteDao.deleteNote(note)
+    }
+
+    override fun searchNote(searchQuery: String): LiveData<List<Note>> {
+        return noteDao.searchNote(searchQuery)
     }
 }

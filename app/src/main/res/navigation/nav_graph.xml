@@ -18,9 +18,14 @@
         android:id="@+id/addOrEditNoteFragment"
         android:name="com.swancodes.mynotes.ui.fragment.AddOrEditNoteFragment"
         android:label="fragment_add_note"
-        tools:layout="@layout/fragment_add_note" >
+        tools:layout="@layout/fragment_add_note">
         <action
             android:id="@+id/to_noteListFragment"
             app:destination="@id/noteListFragment" />
+        <argument
+            android:name="note"
+            android:defaultValue="@null"
+            app:argType="com.swancodes.mynotes.data.Note"
+            app:nullable="true" />
     </fragment>
 </navigation>

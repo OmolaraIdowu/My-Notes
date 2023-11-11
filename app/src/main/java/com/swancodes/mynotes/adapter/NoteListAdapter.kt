@@ -64,11 +64,11 @@ class NoteListAdapter(private val listener: ItemClickListener) :
     companion object {
         private val DiffCallback = object : DiffUtil.ItemCallback<Note>() {
             override fun areItemsTheSame(oldItem: Note, newItem: Note): Boolean {
-                return oldItem.creationTime == newItem.creationTime
+                return oldItem.id == newItem.id
             }
 
             override fun areContentsTheSame(oldItem: Note, newItem: Note): Boolean {
-                return oldItem == newItem
+                return oldItem.id == newItem.id
             }
         }
     }

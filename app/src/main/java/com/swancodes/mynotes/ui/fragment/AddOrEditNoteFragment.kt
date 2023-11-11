@@ -4,12 +4,14 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.content.res.Configuration
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.snackbar.Snackbar
 import com.swancodes.mynotes.R
@@ -30,6 +32,10 @@ class AddOrEditNoteFragment : Fragment() {
     private var selectedPriority: Priority = Priority.MEDIUM
     private var isAllFabVisible = false
     private val viewModel: NoteViewModel by viewModel()
+    private val args: AddOrEditNoteFragmentArgs by navArgs()
+
+    private var note: Note? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -44,6 +50,13 @@ class AddOrEditNoteFragment : Fragment() {
 
         setupUI()
         setClickListeners()
+
+        args.note?.let {
+            binding.noteTitle.setText(it.title)
+            binding.noteContent.setText(it.content)
+            selectedPriority = it.priority
+            note = it
+        }
     }
 
     private fun setupUI() = with(binding) {
@@ -55,6 +68,7 @@ class AddOrEditNoteFragment : Fragment() {
         isAllFabVisible = false
 
     }
+
 
     private fun setClickListeners() = with(binding) {
         moreFab.setOnClickListener {
@@ -80,13 +94,25 @@ class AddOrEditNoteFragment : Fragment() {
         val creationTime = System.currentTimeMillis()
 
         if (inputCheck(title, content)) {
-            // Create Note Object
-            val note = Note(title, content, creationTime, selectedPriority)
-
-            viewModel.addNote(note)
-            findNavController().navigate(AddOrEditNoteFragmentDirections.toNoteListFragment())
-            Snackbar.make(binding.root, "Note saved successfully", Snackbar.LENGTH_SHORT).show()
-
+            if (note == null) {
+                //Add Note
+                // Create Note Object
+                val note = Note(0, title, content, creationTime, selectedPriority)
+                viewModel.addNote(note)
+                Log.d("AddFragment", "savedNote: $note ")
+                Snackbar.make(binding.root, "Note saved successfully", Snackbar.LENGTH_SHORT).show()
+            } else {
+                // Edit Note
+                note?.let {
+                    val updatedNote =
+                        it.copy(title = title, content = content, priority = selectedPriority)
+                    viewModel.updateNote(updatedNote)
+                    Log.d("AddFragment", "updatedNote: $updatedNote ")
+                    Snackbar.make(binding.root, "Note updated successfully", Snackbar.LENGTH_SHORT)
+                        .show()
+                }
+            }
+            findNavController().navigateUp()
         } else {
             Toast.makeText(requireContext(), "Please fill all fields", Toast.LENGTH_SHORT).show()
         }
